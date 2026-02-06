@@ -1,5 +1,5 @@
 apiVersion: argoproj.io/v1alpha1
-kind: AppProjection
+kind: AppProject
 metadata:
   name: apps-of-apps
   namespace: argocd
@@ -9,7 +9,6 @@ spec:
   destinations:
   - server: https://172.31.1.175:33893
     namespace: appsofapps
-  project: default
   clusterResourceWhitelist:
   - group: '*'
     kind: '*'
@@ -18,6 +17,6 @@ spec:
     kind: '*'
   roles:
   - name: appsofapps-admin
-  description: Admin role for apps-of-apps
-  policies:
-  - p, role:appsofapps-admin, applications, *, appsofapps/*, allow
+    description: Admin role for apps-of-apps
+    policies:
+    - p, role:appsofapps-admin, applications, *, appsofapps/*, allow
